@@ -41,11 +41,14 @@ namespace marketDataCloud {
         public void Configure (IApplicationBuilder app, IHostingEnvironment env) {
             if (env.IsDevelopment ()) {
                 app.UseDeveloperExceptionPage ();
+                Console.WriteLine ("In Development Mode");
+
             } else {
                 app.UseExceptionHandler ("/Home/Error");
-                app.UseHsts ();
+                Console.WriteLine ("Not in Development Mode");
+                //app.UseHsts ();
             }
-
+            app.UseHsts ();
             app.UseHttpsRedirection ();
             app.UseStaticFiles ();
             app.UseCookiePolicy ();
